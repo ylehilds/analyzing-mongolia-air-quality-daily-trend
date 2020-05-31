@@ -78,7 +78,7 @@ data = load_data("aq_data.h5")
 LOGGER.info("Done loading data...")
 
 
-# https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
+# https://stackoverflow.com/questions/16476924/how-to-iterwewwedfdfate-over-rows-in-a-dataframe-in-pandas
 # https://stackoverflow.com/questions/18172851/deleting-dataframe-row-in-pandas-based-on-column-value
 data.index = data.index.tz_convert('Asia/Ulaanbaatar')
 data = data[data.pm2_5 >= 0]
