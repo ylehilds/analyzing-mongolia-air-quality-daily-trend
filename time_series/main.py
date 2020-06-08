@@ -107,7 +107,7 @@ wy = data[(data.index < '2020-02-11')].groupby("name").get_group('WY')
 # Switched
 
 # ab will commented out until we know the date
-# ab = data[(data.index < '????-??-??')].groupby("name").get_group('AB') # outdoor sensor we are no longer using these sensors data before but will use after the switch to indoor
+ab = data[(data.index > '2020-01-28') & (data.index <= '2020-02-14')].groupby("name").get_group('AB') # outdoor sensor we are no longer using these sensors data before but will use after the switch to indoor
 ns = data[(data.index >= '2020-01-28')].groupby("name").get_group('NS') # outdoor sensor we are no longer using these sensors data before but will use after the switch to indoor
 oregon = oregon[(oregon.index >= '2020-01-28')] # outdoor sensor we are no longer using these sensors data before but will use after the switch to indoor
 ut = data[(data.index >= '2020-01-29')].groupby("name").get_group('UT') # outdoor sensor we are no longer using these sensors data before but will use after the switch to indoor
@@ -129,11 +129,11 @@ modified_gers_data = modified_gers_data.append(ky, ignore_index=True)
 
 unmodified_gers = ['NJ', 'NU', 'OK', 'PA', 'RI', 'SD', 'VA', 'WI']
 unmodified_gers_data = data[(data.name == unmodified_gers[0]) | (data.name == unmodified_gers[1]) | (data.name == unmodified_gers[2]) | (data.name == unmodified_gers[3]) | (data.name == unmodified_gers[4]) | (data.name == unmodified_gers[5]) | (data.name == unmodified_gers[6]) | (data.name == unmodified_gers[7])]
-unmodified_gers_data = unmodified_gers_data.append(mb, ignore_index=True)
-# unmodified_gers_data.append(ab, ignore_index=True)
-unmodified_gers_data = unmodified_gers_data.append(ns, ignore_index=True)
-unmodified_gers_data = unmodified_gers_data.append(oregon, ignore_index=True)
-unmodified_gers_data = unmodified_gers_data.append(ut, ignore_index=True)
+unmodified_gers_data = unmodified_gers_data.append(mb)
+unmodified_gers_data = unmodified_gers_data.append(ab)
+unmodified_gers_data = unmodified_gers_data.append(ns)
+unmodified_gers_data = unmodified_gers_data.append(oregon)
+unmodified_gers_data = unmodified_gers_data.append(ut)
 
 
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
