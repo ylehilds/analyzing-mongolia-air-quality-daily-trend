@@ -81,6 +81,11 @@ LOGGER.info("Done loading data...")
 # https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
 # https://stackoverflow.com/questions/18172851/deleting-dataframe-row-in-pandas-based-on-column-value
 data = data[data.pm2_5 >= 0]
+data.loc[data['pm2_5'] > 1000, 'pm2_5'] = 1000
+data.loc[data['pm2_5'] < 0, 'pm2_5'] = 0
+# data.loc[data['pm2_5'] >= 0, 'pm2_5'] = data['pm2_5'] / (1 + ((0.4/1.65)/(-1+(1/(35/100)))))
+# cars$per_inc <-  (cars$oldprice / cars$newprice)*100
+data['recalculated_pm2_5'] = data['pm2_5'] / (1 + ((0.4/1.65)/(-1+(1/(35/100)))))
 data = data[data.location_name == 'Mongolia']
 
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
