@@ -86,6 +86,8 @@ data.loc[data['pm2_5'] < 0, 'pm2_5'] = 0
 # data.loc[data['pm2_5'] >= 0, 'pm2_5'] = data['pm2_5'] / (1 + ((0.4/1.65)/(-1+(1/(35/100)))))
 # cars$per_inc <-  (cars$oldprice / cars$newprice)*100
 data['recalculated_pm2_5'] = data['pm2_5'] / (1 + ((0.4/1.65)/(-1+(1/(35/100)))))
+# the below one is how we will actually do so we don't have both columns to look at
+# data['pm2_5'] = data['pm2_5'] / (1 + ((0.4/1.65)/(-1+(1/(35/100)))))
 data = data[data.location_name == 'Mongolia']
 
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
