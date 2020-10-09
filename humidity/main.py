@@ -1,4 +1,4 @@
-import secrets
+import mysecrets
 import logging
 import math
 import os
@@ -19,11 +19,11 @@ LOGGER = logging.getLogger(__name__)
 # Need to ssh tunnel for this to work
 # ssh -L 8086:localhost:8086 aq.byu.edu -N
 influx = DataFrameClient(
-    host=secrets.HOST,
-    port=secrets.PORT,
-    username=secrets.USERNAME,
-    password=secrets.PASSWORD,
-    database=secrets.DATABASE,
+    host=mysecrets.HOST,
+    port=mysecrets.PORT,
+    username=mysecrets.USERNAME,
+    password=mysecrets.PASSWORD,
+    database=mysecrets.DATABASE,
 )
 
 from platform import python_version
