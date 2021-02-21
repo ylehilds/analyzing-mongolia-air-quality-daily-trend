@@ -1,5 +1,5 @@
 .idea
-secrets.py
+mysecrets.py
 aq_data.h5
 older_aq_data.h5
 new_aq_data.h5
